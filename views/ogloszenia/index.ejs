@@ -1,0 +1,50 @@
+<% include ../partials/header %>
+
+<div class="container ">
+    <div class="jumbotron">
+        <h2 class="text-center">Ogłoszenia zagubioncyh zwierząt!</h2>
+        <p class="text-center">Pomagajmy pomagać!</p>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <p class="text-center">Chcesz adoptować pupila?</p>
+                <p class="text-center"><a class="btn btn-primary btn-xs" href="/adopcja" role="button">Sprawdź</a></p>
+            </div>
+            <div class="col-md-6">
+                <p class="text-center">Zgubiłeś pupila?</p>
+                <p class="text-center"><a class="btn btn-primary btn-xs" href="/ogloszenia/new" role="button">Dodaj ogłoszenie</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% ogloszenie.forEach(function(ogloszenie){ %>
+    <div class="ui main text container segment">
+        <h6>Data dodania ogłoszenia: 
+            <strong><%= moment(ogloszenie.createdAt).locale('pl').fromNow() %></strong>
+        </h6>
+        <div class="ui huge header text-center"><%= ogloszenie.title %></div>
+        <div class="ui top attached">
+            <div class="item">
+                <img class="ui centered rounded image" src="<%= ogloszenie.image %>">
+                <br>
+                <div class="content">
+                    <span><p class="text-center enter"><%= ogloszenie.body %></p></span>
+                </div>
+                <br>
+                <hr>
+                <div class="description">
+                    <p>Telefon kontaktowy: <strong><%= ogloszenie.number %></strong></p>
+                </div>
+                <% if(currentUser && ogloszenie.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
+                    <a class="ui orange basic button" href="/ogloszenia/<%= ogloszenie._id %>/edit">Edytuj</a>
+                    <form id="delete-form" action="/ogloszenia/<%= ogloszenie._id %>?_method=DELETE" method="POST">
+                        <button class="ui red basic button">Usuń</button>
+                    </form>
+               <% } %>
+            </div>
+        </div>
+    </div>
+<% }) %>
+
+<% include ../partials/footer %>

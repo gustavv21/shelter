@@ -1,0 +1,26 @@
+<% include ../partials/header %>
+
+<div class="ui main text container segment">
+    <div class="ui huge header">Dodaj ogloszenie</div>
+    <form class="ui form" action="/ogloszenia" method="POST">
+        <div class="field">
+            <label>Tytuł</label>
+            <input type="text" name="title" placeholder="Tytuł ogłoszenia">
+        </div>
+        <div class="field">
+            <label>Zdjęcie</label>
+            <input type="text" name="image" placeholder="Zdjęcie pupila">
+        </div>
+        <div class="field">
+            <label>Numer kontaktowy</label>
+            <input type="text" name="number" placeholder="Numer kontaktowy">
+        </div>
+        <div class="field">
+            <label>Opis ogłoszenia</label>
+            <textarea type="text" name="body"></textarea>
+        </div>
+        <input class="ui purple big basic button" type="submit" value="Dodaj">
+    </form>
+</div>
+
+<% include ../partials/footer %>

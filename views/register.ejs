@@ -1,0 +1,38 @@
+<% include ./partials/header %>
+
+<div class="container">
+    <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            Code Admin: 123
+        </div>
+    <div class="row">
+        <h1 style="text-align: center; margin-top: 80px">Register</h1>
+        <div style="width: 30%; margin: 25px auto">
+            <form action="/register" method="POST">
+                <div class="form-group">
+                    <label>Nazwa użytkownika:</label>
+                    <input class="form-control" type="text" name="username" placeholder="Imię i nazwisko" required>
+                </div>
+                <div class="form-group">
+                    <label>Hasło:</label>
+                    <input class="form-control" type="password" name="password" placeholder="Hasło musi zawierać od 5 do 10 znaków" pattern=".{5,10}" required title="Hasło musi zawierać od 5 do 10 znaków">
+                </div>
+                <div class="form-group">
+                    <label>Admin:</label>
+                    <input class="form-control" type="text" name="adminCode" placeholder="Code Admin">
+                </div>
+                <div>
+	                <label for = "terms">Zgadzam się z <a href="#">warunkami</a>:</label>
+	                <input type="checkbox" id="terms" name="terms" required>
+	            </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Rejestracja</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include ./partials/footer %>

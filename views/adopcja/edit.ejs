@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+<div class="ui main text container segment">
+    <div class="ui huge header">Edycja zwierzaka</div>
+    <form class="ui form" action="/adopcja/<%= animal._id %>?_method=PUT" method="POST">
+        <div class="field">
+            <label>Imię</label>
+            <input type="text" name="animal[name]" value="<%= animal.name %>">
+        </div>
+        <div class="field">
+            <label>Zdjęcie</label>
+            <input type="text" name="animal[image]" value="<%= animal.image %>">
+        </div>
+        <div class="field">
+            <label>Wiek</label>
+            <input type="text" name="animal[age]" value="<%= animal.age %>">
+        </div>
+        <div class="field">
+            <label>Rasa</label>
+            <input type="text" name="animal[sex]" value="<%= animal.sex %>">
+        </div>
+        <div class="field">
+            <label>Charakterystyka</label>
+            <textarea name="animal[dsc]"><%= animal.dsc %></textarea>
+        </div>
+        <input class="ui purple big basic button" type="submit" value="Dodaj">
+    </form>
+</div>
+
+<% include ../partials/footer %>

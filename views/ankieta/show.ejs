@@ -1,0 +1,58 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center; margin-top: 80px">Ankieta Adopcyjna <%= ankieta.dane %> </h1>
+        <!--<p class="text-center">Podjąłeś już decyzję? Wypełnij ankietę, najlepiej z całą rodziną! Celem ankiety jest jak najlepsze dobranie zwierzaka do opiekunów. Skontaktujemy się z każdym, kto poprawnie wyśle formularz. Komunikat „Twoja ankieta została przesłana” potwierdza poprawność wysyłki formularza.</p>-->
+        <hr>
+        <div style="width: 50%; margin: 25px auto">
+            <form action="/zgloszenia" method="GET">
+                <div class="form-group">
+                    <label>Imię i nazwisko:</label>
+                    <input class="form-control" type="text" name="ankieta[dane]" value="<%= ankieta.dane %>">
+                </div>
+                <div class="form-group">
+                    <label>Numer telefonu:</label>
+                    <input class="form-control" type="number" name="ankieta[number]" value="<%= ankieta.number %>">
+                </div>
+                <div class="form-group">
+                    <label>Liczba osób w gospodarstwie domowym:</label>
+                    <input class="form-control" type="number" name="ankieta[losob]" value="<%= ankieta.losob %>">
+                </div>
+                <div class="form-group">
+                    <label >W jakich warunkach Państwo mieszkają?</label>
+                    <select class="form" name="ankieta[dom]">
+                        <option><%= ankieta.dom %></option>
+                        <option>Dom jednorodzinny</option>
+                		<option>Mieszkanie</option>
+                		<option>Inne</option>
+                	</select>
+                </div>
+                <div class="form-group">
+                    <label>Czy właściciel mieszkania/domu wyraża zgodę na zamieszkanie zwierzaka? </label>
+                    <select class="form" name="ankieta[zgoda]">
+                        <option><%= ankieta.zgoda %></option>
+                        <option>Tak</option>
+                		<option>Nie</option>
+                		<option>Nie wiem</option>
+                	</select>
+                </div>
+                <div class="form-group">
+                    <label>Czy w domu mieszkają inne psy lub koty?</label>
+                    <select class="form" name="ankieta[inne]">
+                        <option><%= ankieta.inne %></option>
+                        <option>Tak</option>
+                		<option>Nie</option>
+                	</select>
+                </div>
+                 <div class="form-group">
+                    <label>Dlaczego akurat teraz zdecydowali się Państwo na adopcję psa/kota? </label>
+                    <textarea class="form" name="ankieta[opis]"><%= ankieta.opis %></textarea>
+                </div>
+            </form>
+             <a class="btn btn-lg btn-primary btn-block" href="/zgloszenia">Cofnij</a>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

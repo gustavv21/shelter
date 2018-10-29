@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+
+<div class=container>
+    <h2 class="text-center">Osoby chętne do adopcji</h2>
+    <table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nazwa użytkownika</th>
+            <th>Data zgłoszenia</th>
+            <th>Działanie</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% ankieta.forEach(function(ankieta){ %>
+            <tr>
+                <td><%= ankieta.dane %></td>
+                <td><%= moment(ankieta.createdAt).locale('pl').fromNow() %></td>
+                <td>
+                    <a class="ui floated basic violet button" href="/zgloszenia/<%= ankieta._id %>">
+                    Zobacz
+                    </a>   
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+    </table>
+</div>
+
+<% include ../partials/footer %>

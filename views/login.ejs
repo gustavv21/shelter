@@ -1,0 +1,25 @@
+<% include ./partials/header %>
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center; margin-top: 80px">Logowanie</h1>
+        <div style="width: 30%; margin: 25px auto">
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <label>Imię i nazwisko:</label>
+                    <input class="form-control" type="text" name="username" placeholder="Imię i nazwisko">
+                </div>
+                <div class="form-group">
+                    <label>Hasło:</label>
+                    <input class="form-control" type="password" name="password" placeholder="Hasło">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Zaloguj się</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<% include ./partials/footer %>

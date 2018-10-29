@@ -1,0 +1,54 @@
+<% include ../partials/header %>
+
+<div class="container ">
+    <div class="jumbotron">
+        <h2 class="text-center">Schronisko dla bezdomnych zwierząt!</h2>
+        <p class="text-center">Pomóż zmienić nam ich życie</p>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <p class="text-center">Nadajesz się do adopcji?</p>
+                <p class="text-center"><a class="btn btn-primary btn-xs" href="/ankieta" role="button">Sprawdź</a></p>
+            </div>
+            <div class="col-md-6">
+                <p class="text-center">Widziałeś samotnego zwierzaka?</p>
+                <p class="text-center"><a class="btn btn-primary btn-xs" href="/ogloszenia" role="button">Sprawdź</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="ui main text container">
+        <div class="ui huge header">
+            <p class="text-center">Zwierzęta czekające na nową rodzinę</p>
+        </div>
+        <div class="ui top attached segment">
+            <div class="ui divided items">
+                <% animals.forEach(function(animal){ %>
+                <div class="item">
+                    <div class="image">
+                        <img src="<%= animal.image %>">
+                    </div>
+                    <div class="content">
+                        <p class="header">Imię: <%= animal.name %></p>
+                        
+                        <div class="description">
+                            <p>Wiek: <%= animal.age %></p>
+                        </div>
+                        <div class="description">
+                            <p>Rasa: <%= animal.sex %></p>
+                        </div>
+                        <div class="extra">
+                            <a class="ui floated basic violet button" href="/adopcja/<%= animal._id %>">
+                                Zobacz więcej!
+                                <i class="fas fa-paw"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

@@ -1,0 +1,45 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div style="margin-top: 5.0em">
+        <div class="row">
+            <div class="col-md-3">
+                <h3 class="lead text-center"><%= animal.name %></h3>
+                <div class="thumbnail">
+                    <img src="<%= animal.image %>">
+                </div>
+                <p>Wiek: <strong><%= animal.age %></strong></p>
+                <p>Rasa: <strong><%= animal.sex %></strong></p>
+                <p>Data dodania ogłoszenia: 
+                <br>
+                <strong><%= moment(animal.createdAt).locale('pl').fromNow() %></strong>
+                </p>
+                <div style="margin-top: 10px;">
+                     <a class="btn btn-lg btn-default" href="/adopcja"><i class="fa fa-arrow-left"></i> Go back</a>
+                </div>
+                <% if(currentUser && currentUser.isAdmin) { %>
+                <div style="margin-top: 10px;">
+                        <a class="ui inverted purple button" href="/adopcja/<%= animal._id %>/edit">Edit</a>
+                        <form id="delete-form" action="/adopcja/<%= animal._id %>?_method=DELETE" method="POST">
+                            <button class="ui inverted red button">Delete</button>
+                        </form>
+                </div>
+                <% } %>
+            </div>
+            <div class="col-md-9">
+                <div class="ui main container segment">
+                    <div class="description">
+                        <div >
+                            <label class="enter"><%= animal.dsc %></label>
+                        </div>
+
+                    </div>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<% include ../partials/footer %>
