@@ -18,7 +18,8 @@ var authRoutes       = require("./routes/auth"),
     ankietaRoutes    = require("./routes/ankieta"),
     ogloszeniaRoutes = require("./routes/ogloszenia");
 
-mongoose.connect("mongodb://localhost/schronisko");
+// mongoose.connect("mongodb://localhost/schronisko");
+mongoose.connect("mongodb://gustav:Gustav1@ds145053.mlab.com:45053/newyork");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
